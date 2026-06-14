@@ -75,6 +75,19 @@ header p { color: #ffbf90; margin-top: 8px; font-size: 0.95em; letter-spacing: 1
 #lightbox-badges { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; margin-bottom: 4px; }
 #lightbox-counter { font-size: 0.75em; color: #5a7a96; margin-top: 6px; }
 #empty { display: none; text-align: center; padding: 60px; color: #3a5a76; font-size: 1.1em; }
+@media (max-width: 600px) {
+  body { zoom: 1; }
+  header { padding: 10px 14px; }
+  header h1 { font-size: 1.3em; letter-spacing: 1px; }
+  header p { display: none; }
+  .controls { padding: 8px 10px; }
+  .filter-row { gap: 4px; margin-bottom: 6px; }
+  .filter-row label { display: none; }
+  .btn { padding: 4px 9px; font-size: 0.75em; }
+  .search-row { gap: 6px; }
+  #searchInput { width: 100%; font-size: 0.85em; }
+  #grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; padding: 10px; }
+}
 </style>
 </head>
 <body>
