@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <title>Terraforming Mars Card Database</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -78,13 +77,8 @@ header p { color: #ffbf90; margin-top: 8px; font-size: 0.95em; letter-spacing: 1
 #empty { display: none; text-align: center; padding: 60px; color: #3a5a76; font-size: 1.1em; }
 #dl-all-section { text-align: center; padding: 40px 20px 60px; border-top: 1px solid #1a2d40; margin-top: 20px; }
 #dl-all-section p { color: #5a7a96; font-size: 0.85em; margin-bottom: 14px; }
-#btn-dl-all { background: #1a2838; border: 2px solid #e05010; color: #ff8040; padding: 10px 28px; border-radius: 24px; cursor: pointer; font-size: 0.95em; font-weight: bold; transition: all 0.2s; }
+#btn-dl-all { display: inline-block; background: #1a2838; border: 2px solid #e05010; color: #ff8040; padding: 10px 28px; border-radius: 24px; font-size: 0.95em; font-weight: bold; transition: all 0.2s; text-decoration: none; }
 #btn-dl-all:hover { background: #e05010; color: #fff; box-shadow: 0 0 16px rgba(220,80,10,0.5); }
-#btn-dl-all:disabled { opacity: 0.5; cursor: default; pointer-events: none; }
-#dl-progress-wrap { display: none; margin-top: 14px; }
-#dl-progress-bar-bg { background: #1a2838; border-radius: 10px; height: 8px; width: 300px; max-width: 80vw; margin: 0 auto 8px; overflow: hidden; }
-#dl-progress-bar { background: linear-gradient(90deg, #e05010, #ff8040); height: 100%; width: 0%; border-radius: 10px; transition: width 0.2s; }
-#dl-progress-label { color: #7a9ab8; font-size: 0.8em; }
 .card-wrap { position: relative; }
 .card-wrap .dl-btn { position: absolute; bottom: 6px; right: 6px; background: rgba(10,20,32,0.85); border: 1px solid #2e4a62; color: #8ab0cc; border-radius: 6px; padding: 3px 7px; font-size: 0.7em; cursor: pointer; opacity: 0; transition: opacity 0.15s; z-index: 2; }
 .card-wrap:hover .dl-btn { opacity: 1; }
@@ -150,11 +144,7 @@ header p { color: #ffbf90; margin-top: 8px; font-size: 0.95em; letter-spacing: 1
 
 <div id="dl-all-section">
   <p>Download the full card database (489 full-resolution scans, no thumbnails)</p>
-  <button id="btn-dl-all">⬇ Download Full Database</button>
-  <div id="dl-progress-wrap">
-    <div id="dl-progress-bar-bg"><div id="dl-progress-bar"></div></div>
-    <div id="dl-progress-label">Preparing...</div>
-  </div>
+  <a id="btn-dl-all" href="https://cards.hadronikle.com/TerraformingMars-CardDatabase.zip">⬇ Download Full Database</a>
 </div>
 
 <div id="lightbox">
