@@ -187,9 +187,9 @@ let currentFiltered = [];
 
 function cardMatchesExps(c) {
   if (filterMode === "strict") {
-    return c.tags.every(t =>
-      [...activeExps].some(exp => EXP_TAG_MAP[exp] && EXP_TAG_MAP[exp].includes(t))
-    );
+    const selectedTags = [...activeExps].flatMap(exp => EXP_TAG_MAP[exp] || []);
+    return selectedTags.length === c.tags.length &&
+           c.tags.every(t => selectedTags.includes(t));
   }
   return c.tags.some(t =>
     [...activeExps].some(exp => EXP_TAG_MAP[exp] && EXP_TAG_MAP[exp].includes(t))
@@ -320,9 +320,16 @@ document.querySelectorAll(".btn-exp").forEach(btn => {
 });
 
 document.getElementById("btn-allsets").addEventListener("click", () => {
-  ALL_EXPS.forEach(exp => activeExps.add(exp));
-  document.querySelectorAll(".btn-exp").forEach(b => b.classList.add("active"));
-  document.getElementById("btn-allsets").classList.add("active");
+  const allOn = ALL_EXPS.every(e => activeExps.has(e));
+  if (allOn) {
+    ALL_EXPS.forEach(exp => activeExps.delete(exp));
+    document.querySelectorAll(".btn-exp").forEach(b => b.classList.remove("active"));
+    document.getElementById("btn-allsets").classList.remove("active");
+  } else {
+    ALL_EXPS.forEach(exp => activeExps.add(exp));
+    document.querySelectorAll(".btn-exp").forEach(b => b.classList.add("active"));
+    document.getElementById("btn-allsets").classList.add("active");
+  }
   render();
 });
 
