@@ -9,7 +9,7 @@ A complete, searchable card reference for **Terraforming Mars**, covering all Pr
 ## Features
 
 - **500 cards** across all expansions
-- Browse **Projects**, **Corporations**, **Preludes**, and **Colonies**
+- Browse **Projects**, **Corporations**, **Preludes**, **Colonies**, and **Global Events**
 - Filter by expansion, toggle individual sets or view all at once
 - Search cards by name, number, or expansion
 - Click any card for a full-size lightbox view with keyboard navigation
@@ -24,7 +24,7 @@ A complete, searchable card reference for **Terraforming Mars**, covering all Pr
 | Venus Next | Venus-themed cards |
 | Prelude | Prelude cards (sets 1 & 2) |
 | Colonies | Colony-focused cards |
-| Turmoil | Political and turmoil cards |
+| Turmoil | Political, turmoil cards, and global events |
 | Promo | Promotional cards |
 
 ## 📌 About the Scans
