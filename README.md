@@ -8,7 +8,7 @@ A complete, searchable card reference for **Terraforming Mars**, covering all Pr
 
 ## Features
 
-- **500 cards** across all expansions
+- **531 cards** across all expansions
 - Browse **Projects**, **Corporations**, **Preludes**, **Colonies**, and **Global Events**
 - Filter by expansion, toggle individual sets or view all at once
 - Search cards by name, number, or expansion
