@@ -156,6 +156,7 @@ header p { color: #ffbf90; margin-top: 8px; font-size: 0.95em; letter-spacing: 1
     <button class="btn btn-exp active" data-exp="Colonies">Colonies</button>
     <button class="btn btn-exp active" data-exp="Turmoil">Turmoil</button>
     <button class="btn btn-exp active" data-exp="Promo">Promo</button>
+    <button class="btn btn-exp active" data-exp="Automa">Automa</button>
   </div>
   <div class="search-row">
     <input id="searchInput" type="text" placeholder="Search cards…">
@@ -191,7 +192,7 @@ const CARDS = [{"cat": "Project", "exp": "Base", "primary": "Base", "tags": ["Ba
 let slowMode = false;
 let filterMode = "broad";
 let activeCat = "all";
-const ALL_EXPS = ["Base", "Corporate Era", "Venus Next", "Prelude", "Prelude 2", "Colonies", "Turmoil", "Promo"];
+const ALL_EXPS = ["Base", "Corporate Era", "Venus Next", "Prelude", "Prelude 2", "Colonies", "Turmoil", "Promo", "Automa"];
 let activeExps = new Set(ALL_EXPS);
 const EXP_TAG_MAP = {
   "Base":          ["Base"],
@@ -202,13 +203,13 @@ const EXP_TAG_MAP = {
   "Colonies":      ["Colonies"],
   "Turmoil":       ["Turmoil"],
   "Promo":         ["Promo"],
+  "Automa":        ["Automa"],
 };
 
 function bc(tag) { return "badge-" + tag.replace(/\s+/g, "-"); }
 let currentFiltered = [];
 
 function cardMatchesExps(c) {
-  if (c.cat === "Automa") return true;
   if (filterMode === "strict") {
     const selectedTags = [...activeExps].flatMap(exp => EXP_TAG_MAP[exp] || []);
     return selectedTags.length === c.tags.length &&
