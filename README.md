@@ -2,7 +2,7 @@
 
 > A complete, searchable card browser for **Terraforming Mars** — every card, every expansion, all in one place.
 
-### 🌐 [View the Live Database](https://hadronikle.github.io/Complete-Terraforming-Mars-Card-Database/)
+### 🌐 [View the Live Database](https://tm.hadronikle.com/)
 
 ---
 
@@ -50,4 +50,6 @@ If you notice a missing card, a duplicate, or a quality issue, please [open an I
 
 ---
 
-*Fan-made reference tool by Hadronikle. Terraforming Mars is created by Jacob Fryxelius and published by FryxGames. All card images are property of their respective owners.*
+## Disclaimer
+
+This is an unofficial, fan-made reference tool created by Hadronikle and is intended for personal reference use only. This project is not affiliated with, endorsed by, or associated with Jacob Fryxelius or FryxGames in any way. Terraforming Mars is created by Jacob Fryxelius and published by FryxGames. All card names, artwork, and images are property of their respective owners.
