@@ -4,14 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Terraforming Mars Card Database</title>
+<link rel="icon" type="image/png" href="favicon.png">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: #0f1923; color: #e8e0d0; font-family: 'Trebuchet MS', sans-serif; min-height: 100vh; zoom: 1.25; }
-header { background: linear-gradient(135deg, #7b1a0a 0%, #c0340f 40%, #e8520a 60%, #c0340f 80%, #7b1a0a 100%); border-bottom: 4px solid #ff6a1a; padding: 24px 20px; text-align: center; box-shadow: 0 4px 24px rgba(200,80,10,0.5); }
-header h1 { font-size: 2.4em; color: #fff; text-shadow: 0 0 20px rgba(255,120,30,0.8), 0 2px 6px #000; letter-spacing: 3px; }
-header p { color: #ffbf90; margin-top: 8px; font-size: 0.95em; letter-spacing: 1px; }
+body { background: #0f1923; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='98' viewBox='0 0 56 98'%3E%3Cpath d='M28 18L54 33v30L28 78 2 63V33z' fill='none' stroke='%231a3a5a' stroke-width='1' stroke-opacity='0.9'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='98' viewBox='0 0 56 98'%3E%3Cpath d='M28 18L54 33v30L28 78 2 63V33z' fill='none' stroke='%231a3a5a' stroke-width='1' stroke-opacity='0.9'/%3E%3C/svg%3E"); background-size: 56px 98px; background-position: 0 0, 28px 49px; color: #e8e0d0; font-family: 'Trebuchet MS', sans-serif; min-height: 100vh; zoom: 1.25; }
+header { background: linear-gradient(160deg, #0a0e18 0%, #7b1a0a 30%, #c0340f 55%, #7b1a0a 80%, #0a0e18 100%); border-bottom: 3px solid #ff6a1a; padding: 20px 20px 16px; text-align: center; box-shadow: 0 4px 32px rgba(200,80,10,0.6); position: relative; overflow: hidden; }
+header::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='98' viewBox='0 0 56 98'%3E%3Cpath d='M28 18L54 33v30L28 78 2 63V33z' fill='none' stroke='%23ff8020' stroke-width='1.5' stroke-opacity='0.22'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='98' viewBox='0 0 56 98'%3E%3Cpath d='M28 18L54 33v30L28 78 2 63V33z' fill='none' stroke='%23ff8020' stroke-width='1.5' stroke-opacity='0.14'/%3E%3C/svg%3E"); background-size: 56px 98px; background-position: 0 0, 28px 49px; pointer-events: none; }
+header h1 { font-size: 2.6em; color: #fff; text-shadow: 0 0 30px rgba(255,100,20,0.9), 0 0 60px rgba(255,60,0,0.4), 0 2px 8px #000; letter-spacing: 6px; text-transform: uppercase; font-weight: 900; line-height: 1; position: relative; }
+header .title-sub { font-size: 0.72em; color: #30c8d8; letter-spacing: 10px; text-transform: uppercase; margin-top: 6px; font-weight: normal; text-shadow: 0 0 12px rgba(40,200,220,0.6); position: relative; }
 .controls { background: #141e28; border-bottom: 2px solid #2a3d52; padding: 14px 20px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.5); }
 .filter-row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 8px; }
+.badge-Automa { background: #1a0a2a; color: #a060e0; border: 1px solid #4a1a7a; }
 .filter-row label { color: #7a9ab8; font-size: 0.8em; min-width: 55px; text-transform: uppercase; letter-spacing: 1px; }
 .btn { background: #1e2e3e; border: 1px solid #2e4a62; color: #8ab0cc; padding: 5px 13px; border-radius: 20px; cursor: pointer; font-size: 0.82em; transition: all 0.15s; white-space: nowrap; }
 .btn:hover { background: #2a4060; border-color: #5090c0; color: #c0dff0; }
@@ -50,7 +53,7 @@ header p { color: #ffbf90; margin-top: 8px; font-size: 0.95em; letter-spacing: 1
 #searchInput { background: #1a2838; border: 1px solid #2e4a62; color: #c8dcea; padding: 6px 14px; border-radius: 20px; font-size: 0.9em; width: 280px; outline: none; }
 #searchInput:focus { border-color: #e05010; box-shadow: 0 0 8px rgba(220,80,10,0.3); }
 #count { color: #5a7a96; font-size: 0.82em; }
-#grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 14px; padding: 20px; }
+#grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 14px; padding: 20px; align-items: start; }
 .card { background: linear-gradient(180deg, #1a2535 0%, #111d2a 100%); border: 1px solid #2a3d52; border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s; }
 .card:hover { transform: translateY(-5px) scale(1.02); border-color: #e05010; box-shadow: 0 8px 28px rgba(220,80,10,0.45); }
 .card img { width: 100%; display: block; object-fit: cover; }
@@ -109,28 +112,37 @@ header p { color: #ffbf90; margin-top: 8px; font-size: 0.95em; letter-spacing: 1
 #btn-slowmode.active { background: #203828; border-color: #2a6040; color: #40c880; box-shadow: 0 0 8px rgba(40,180,80,0.3); }
 #btn-filtermode { background: #1a2030; border-color: #2a3a50; color: #5a7a96; }
 #btn-filtermode.strict { background: #2a1a3a; border-color: #6a3a9a; color: #c080f0; box-shadow: 0 0 8px rgba(150,80,220,0.3); }
+#btn-clear { background: #1e1808; border-color: #503810; color: #907840; }
+#btn-clear:hover { background: #2a2010; border-color: #705820; color: #c0a050; }
+.btn-exp { position: relative; }
+.btn-exp[data-count]:hover::after { content: attr(data-count) " cards"; position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%); background: rgba(8,14,24,0.96); color: #c8e0f0; padding: 4px 10px; border-radius: 8px; font-size: 0.75em; white-space: nowrap; pointer-events: none; border: 1px solid #2e4a62; z-index: 200; }
+#back-to-top { display: none; position: fixed; bottom: 28px; right: 28px; background: #e05010; color: #fff; border: none; border-radius: 50%; width: 44px; height: 44px; font-size: 1.4em; cursor: pointer; box-shadow: 0 4px 18px rgba(220,80,10,0.6); z-index: 500; transition: background 0.15s; line-height: 1; }
+#back-to-top:hover { background: #ff6020; }
+#grid-sentinel { height: 1px; grid-column: 1 / -1; }
 #lightbox-dl { margin-top: 8px; background: #1a2838; border: 1px solid #e05010; color: #ff8040; padding: 5px 16px; border-radius: 20px; cursor: pointer; font-size: 0.78em; transition: all 0.15s; }
 #lightbox-dl:hover { background: #e05010; color: #fff; }
 #lightbox-info { text-align: center; margin-top: 8px; min-height: unset; }
 @media (max-width: 600px) {
   body { zoom: 1; }
   header { padding: 10px 14px; }
-  header h1 { font-size: 1.3em; letter-spacing: 1px; }
-  header p { display: none; }
+  header h1 { font-size: 1.4em; letter-spacing: 3px; }
+  header .title-sub { font-size: 0.55em; letter-spacing: 5px; }
   .controls { padding: 8px 10px; }
-  .filter-row { gap: 4px; margin-bottom: 6px; }
+  .filter-row { gap: 4px; margin-bottom: 6px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+  .filter-row::-webkit-scrollbar { display: none; }
   .filter-row label { display: none; }
-  .btn { padding: 4px 9px; font-size: 0.75em; }
+  .btn { padding: 4px 9px; font-size: 0.75em; flex-shrink: 0; }
   .search-row { gap: 6px; }
   #searchInput { width: 100%; font-size: 0.85em; }
   #grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; padding: 10px; }
+  #back-to-top { bottom: 16px; right: 16px; width: 38px; height: 38px; font-size: 1.1em; }
 }
 </style>
 </head>
 <body>
 <header>
-  <h1>&#x1F534; Terraforming Mars Card Database</h1>
-  <p>Complete card reference &mdash; Projects, Corporations &amp; Preludes</p>
+  <h1>Terraforming Mars</h1>
+  <div class="title-sub">Card Database</div>
 </header>
 
 <div class="controls">
@@ -159,14 +171,16 @@ header p { color: #ffbf90; margin-top: 8px; font-size: 0.95em; letter-spacing: 1
     <button class="btn btn-exp active" data-exp="Automa">Automa</button>
   </div>
   <div class="search-row">
-    <input id="searchInput" type="text" placeholder="Search cards…">
+    <input id="searchInput" type="text" placeholder="Search by name, number…">
     <span id="count"></span>
-    <button class="btn" id="btn-slowmode">⚡ Slow Internet Mode</button>
+    <button class="btn" id="btn-clear">✕ Clear Filters</button>
+    <button class="btn" id="btn-slowmode">⚡ Slow Mode</button>
   </div>
 </div>
 
 <div id="grid"></div>
 <div id="empty">No cards match your filters.</div>
+<button id="back-to-top" title="Back to top">↑</button>
 
 <div id="dl-all-section">
   <p>Download the full card database (609 full-resolution scans, no thumbnails)</p>
@@ -192,6 +206,9 @@ const CARDS = [{"cat": "Project", "exp": "Base", "primary": "Base", "tags": ["Ba
 let slowMode = false;
 let filterMode = "broad";
 let activeCat = "all";
+const PAGE_SIZE = 60;
+let renderedCount = 0;
+let batchObserver = null;
 const ALL_EXPS = ["Base", "Corporate Era", "Venus Next", "Prelude", "Prelude 2", "Colonies", "Turmoil", "Promo", "Automa"];
 let activeExps = new Set(ALL_EXPS);
 const EXP_TAG_MAP = {
@@ -241,6 +258,62 @@ async function downloadCard(url, name) {
   }
 }
 
+function cardHTML(c, idx) {
+  const orient = c.cat === "Project" || (c.cat === "Automa" && c.num[0] === "B") ? "portrait" : c.cat === "Colony" ? "colony" : c.cat === "GlobalEvent" ? "globalevent" : "landscape";
+  const typeLabel = c.cat === 'Prelude' ? 'Preludes' : c.cat === 'GlobalEvent' ? 'Global Event' : c.cat === 'Automa' ? 'Automa' : c.cat;
+  const typeBadge = `<span class="exp-badge badge-type-${c.cat}">${typeLabel}</span>`;
+  const expBadges = c.tags.map(t => `<span class="exp-badge ${bc(t)}">${t}</span>`).join("");
+  const imgTag = slowMode
+    ? `<div class="card-placeholder">${c.name}</div>`
+    : `<img src="${c.thumb}" alt="${c.name}" loading="lazy" onerror="this.onerror=null;this.src='${c.img}'">`;
+  return `<div class="card-wrap"><div class="card ${orient}" data-img="${c.img}" data-index="${idx}">
+    ${imgTag}
+    <div class="card-info">
+      <div class="card-name">${c.name}</div>
+      ${c.num ? `<div class="card-meta">${c.num}</div>` : ""}
+      <div class="badges">${typeBadge}${expBadges}</div>
+    </div></div>
+    <button class="dl-btn" data-img="${c.img}" data-name="${c.name}">⬇</button>
+  </div>`;
+}
+
+function renderBatch(startIdx) {
+  const grid = document.getElementById("grid");
+  const batch = currentFiltered.slice(startIdx, startIdx + PAGE_SIZE);
+  const frag = document.createDocumentFragment();
+  batch.forEach((c, i) => {
+    const globalIdx = startIdx + i;
+    const tmp = document.createElement("div");
+    tmp.innerHTML = cardHTML(c, globalIdx);
+    const wrap = tmp.firstElementChild;
+    wrap.querySelector(".card").addEventListener("click", () => openLightbox(globalIdx));
+    wrap.querySelector(".dl-btn").addEventListener("click", e => {
+      e.stopPropagation();
+      downloadCard(c.img, c.name);
+    });
+    frag.appendChild(wrap);
+  });
+  // Remove old sentinel before appending
+  const old = document.getElementById("grid-sentinel");
+  if (old) old.remove();
+  grid.appendChild(frag);
+  renderedCount = startIdx + batch.length;
+  // Add sentinel if more cards remain
+  if (renderedCount < currentFiltered.length) {
+    const sentinel = document.createElement("div");
+    sentinel.id = "grid-sentinel";
+    grid.appendChild(sentinel);
+    if (batchObserver) batchObserver.disconnect();
+    batchObserver = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        batchObserver.disconnect();
+        renderBatch(renderedCount);
+      }
+    }, { rootMargin: "300px" });
+    batchObserver.observe(sentinel);
+  }
+}
+
 function render() {
   const q = document.getElementById("searchInput").value.toLowerCase().trim();
   currentFiltered = CARDS.filter(c => {
@@ -253,35 +326,12 @@ function render() {
   const grid = document.getElementById("grid");
   const empty = document.getElementById("empty");
   document.getElementById("count").textContent = currentFiltered.length + " cards";
-  if (!currentFiltered.length) { grid.innerHTML = ""; empty.style.display = "block"; return; }
+  if (batchObserver) { batchObserver.disconnect(); batchObserver = null; }
+  grid.innerHTML = "";
+  renderedCount = 0;
+  if (!currentFiltered.length) { empty.style.display = "block"; return; }
   empty.style.display = "none";
-  grid.innerHTML = currentFiltered.map(c => {
-    const orient = c.cat === "Project" || (c.cat === "Automa" && c.num[0] === "B") ? "portrait" : c.cat === "Colony" ? "colony" : c.cat === "GlobalEvent" ? "globalevent" : "landscape";
-    const typeLabel = c.cat === 'Prelude' ? 'Preludes' : c.cat === 'GlobalEvent' ? 'Global Event' : c.cat === 'Automa' ? 'Automa' : c.cat;
-    const typeBadge = `<span class="exp-badge badge-type-${c.cat}">${typeLabel}</span>`;
-    const expBadges = c.tags.map(t => `<span class="exp-badge ${bc(t)}">${t}</span>`).join("");
-    const imgTag = slowMode
-      ? `<div class="card-placeholder">${c.name}</div>`
-      : `<img src="${c.thumb}" alt="${c.name}" loading="lazy" onerror="this.onerror=null;this.src='${c.img}'">`;
-    return `<div class="card-wrap"><div class="card ${orient}" data-img="${c.img}">
-      ${imgTag}
-      <div class="card-info">
-        <div class="card-name">${c.name}</div>
-        ${c.num ? `<div class="card-meta">${c.num}</div>` : ""}
-        <div class="badges">${typeBadge}${expBadges}</div>
-      </div></div>
-      <button class="dl-btn" data-img="${c.img}" data-name="${c.name}">⬇</button>
-    </div>`;
-  }).join("");
-  grid.querySelectorAll(".card").forEach((el, i) => {
-    el.addEventListener("click", () => openLightbox(i));
-  });
-  grid.querySelectorAll(".dl-btn").forEach(btn => {
-    btn.addEventListener("click", e => {
-      e.stopPropagation();
-      downloadCard(btn.dataset.img, btn.dataset.name);
-    });
-  });
+  renderBatch(0);
 }
 
 document.querySelectorAll(".btn[data-cat]").forEach(btn => {
@@ -382,6 +432,57 @@ document.addEventListener("keydown", e => {
   if (e.key === "ArrowLeft" && lbIndex > 0) { lbIndex--; showLightboxCard(); }
   if (e.key === "ArrowRight" && lbIndex < currentFiltered.length - 1) { lbIndex++; showLightboxCard(); }
 });
+
+// Clear all filters
+document.getElementById("btn-clear").addEventListener("click", () => {
+  activeCat = "all";
+  document.querySelectorAll(".btn[data-cat]").forEach(b => b.classList.remove("active"));
+  document.querySelector(".btn-type-all").classList.add("active");
+  ALL_EXPS.forEach(exp => activeExps.add(exp));
+  document.querySelectorAll(".btn-exp").forEach(b => b.classList.add("active"));
+  updateAllSetsBtn();
+  filterMode = "broad";
+  document.getElementById("btn-filtermode").textContent = "Broad";
+  document.getElementById("btn-filtermode").classList.remove("strict");
+  slowMode = false;
+  document.getElementById("btn-slowmode").classList.remove("active");
+  document.getElementById("searchInput").value = "";
+  render();
+});
+
+// Back to top
+window.addEventListener("scroll", () => {
+  document.getElementById("back-to-top").style.display = window.scrollY > 300 ? "flex" : "none";
+}, { passive: true });
+document.getElementById("back-to-top").addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// Touch swipe in lightbox
+let touchStartX = 0;
+document.getElementById("lightbox").addEventListener("touchstart", e => {
+  touchStartX = e.touches[0].clientX;
+}, { passive: true });
+document.getElementById("lightbox").addEventListener("touchend", e => {
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  if (Math.abs(dx) < 40) return;
+  if (dx > 0 && lbIndex > 0) { lbIndex--; showLightboxCard(); }
+  if (dx < 0 && lbIndex < currentFiltered.length - 1) { lbIndex++; showLightboxCard(); }
+});
+
+// Card count tooltips on expansion buttons
+(function() {
+  const counts = {};
+  ALL_EXPS.forEach(exp => {
+    counts[exp] = CARDS.filter(c =>
+      EXP_TAG_MAP[exp] && c.tags.some(t => EXP_TAG_MAP[exp].includes(t))
+    ).length;
+  });
+  document.querySelectorAll(".btn-exp[data-exp]").forEach(btn => {
+    const n = counts[btn.dataset.exp];
+    if (n !== undefined) btn.dataset.count = n;
+  });
+})();
 
 render();
 </script>
