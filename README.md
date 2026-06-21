@@ -8,7 +8,7 @@
 
 ## What Is This?
 
-This is a fan-made card reference built by **Hadronikle**. All cards have been physically scanned at 800 DPI, making them suitable for use as a quick reference or for printing replacements if you're missing a card from your collection.
+This is an unofficial, fan-made card reference built by **Hadronikle** for personal reference use only. All cards have been physically scanned at 800 DPI.
 
 The database covers **609 cards** across all major expansions and card types.
 
