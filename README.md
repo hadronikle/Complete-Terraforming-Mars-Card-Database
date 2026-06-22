@@ -1,6 +1,6 @@
 # Terraforming Mars Card Database
 
-> A complete, searchable card browser for **Terraforming Mars** - every card, every expansion, all in one place.
+> A complete, searchable card browser for **Terraforming Mars** — every card, every expansion, all in one place.
 
 ### 🌐 [View the Live Database](https://tm.hadronikle.com/)
 
@@ -10,20 +10,20 @@
 
 This is an unofficial, fan-made card reference built by **Hadronikle** for personal reference use only. All cards have been physically scanned at 800 DPI.
 
-The database covers **609 cards** across all major expansions and card types.
+The database covers **662 cards** across all major expansions and card types.
 
 ---
 
 ## Features
 
-- **Filter by card type** - Projects, Corporations, Preludes, Colonies, Global Events, Automa
-- **Filter by expansion** - toggle one, several, or all sets at once
-- **Strict mode** - show only cards that belong *exclusively* to your selected expansions
-- **Search** - find cards by name, number, or expansion tag
-- **Lightbox viewer** - click any card for a full-size view with keyboard and swipe navigation
-- **Per-card download** - save individual card images directly from the browser
-- **Mobile-friendly** - responsive layout with touch swipe support
-- **Fast loading** - virtual scrolling keeps performance smooth even with 600+ cards
+- **Filter by card type** — Projects, Corporations, Preludes, Colonies, Global Events, Automa
+- **Filter by expansion** — toggle one, several, or all sets at once
+- **Strict mode** — show only cards that belong *exclusively* to your selected expansions
+- **Search** — find cards by name, number, or expansion tag
+- **Lightbox viewer** — click any card for a full-size view with keyboard and swipe navigation
+- **Per-card download** — save individual card images directly from the browser
+- **Mobile-friendly** — responsive layout with touch swipe support
+- **Fast loading** — virtual scrolling keeps performance smooth even with 600+ cards
 
 ---
 
