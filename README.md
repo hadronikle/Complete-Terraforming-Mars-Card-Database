@@ -1,6 +1,6 @@
 # Terraforming Mars Card Database
 
-> A complete, searchable card browser for **Terraforming Mars** — every card, every expansion, all in one place.
+> A complete, searchable card browser for **Terraforming Mars**. Every card, every expansion, all in one place.
 
 ### 🌐 [View the Live Database](https://tm.hadronikle.com/)
 
@@ -16,14 +16,14 @@ The database covers **662 cards** across all major expansions and card types.
 
 ## Features
 
-- **Filter by card type** — Projects, Corporations, Preludes, Colonies, Global Events, Automa
-- **Filter by expansion** — toggle one, several, or all sets at once
-- **Strict mode** — show only cards that belong *exclusively* to your selected expansions
-- **Search** — find cards by name, number, or expansion tag
-- **Lightbox viewer** — click any card for a full-size view with keyboard and swipe navigation
-- **Per-card download** — save individual card images directly from the browser
-- **Mobile-friendly** — responsive layout with touch swipe support
-- **Fast loading** — virtual scrolling keeps performance smooth even with 600+ cards
+- **Filter by card type:** Projects, Corporations, Preludes, Colonies, Global Events, Automa
+- **Filter by expansion:** toggle one, several, or all sets at once
+- **Strict mode:** show only cards that belong *exclusively* to your selected expansions
+- **Search:** find cards by name, number, or expansion tag
+- **Lightbox viewer:** click any card for a full-size view with keyboard and swipe navigation
+- **Per-card download:** save individual card images directly from the browser
+- **Mobile-friendly:** responsive layout with touch swipe support
+- **Fast loading:** virtual scrolling keeps performance smooth even with 600+ cards
 
 ---
 
@@ -37,7 +37,7 @@ The database covers **662 cards** across all major expansions and card types.
 | Prelude (1 & 2) | Preludes |
 | Colonies | Projects, Corporations, Colonies |
 | Turmoil | Projects, Corporations, Global Events |
-| Promo | Projects, Corporations |
+| Promo | Projects, Corporations, Global Events |
 | Automa / MarsBot | Automa Bonus Cards, Automa Corporations |
 
 ---
