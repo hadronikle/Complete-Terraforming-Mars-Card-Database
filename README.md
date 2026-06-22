@@ -42,6 +42,24 @@ The database covers **662 cards** across all major expansions and card types.
 
 ---
 
+## Known Missing Cards
+
+The following cards are not yet in the database:
+
+| # | Name | Source |
+|---|------|--------|
+| X67 | Soil Enrichment | TM: Seasonal Promo Pack 2024 |
+| X68 | Supermarkets | TM: Seasonal Promo Pack 2024 |
+| X69 | Hospitals | TM: Seasonal Promo Pack 2024 |
+| X70 | Public Baths | TM: Seasonal Promo Pack 2024 |
+| X71 | City Parks | TM: Seasonal Promo Pack 2024 |
+| X77 | Public Plans | WSBG Las Vegas 2025 (World Series of Board Games) |
+| 136 | Great Dam | Base Set |
+
+If you have any of these cards and would like to contribute a scan, please [open an Issue](https://github.com/hadronikle/Complete-Terraforming-Mars-Card-Database/issues).
+
+---
+
 ## About the Scans
 
 Cards were physically scanned at 800 DPI. Thumbnails are served via Cloudflare R2 for fast loading; full-resolution images are available on click.
