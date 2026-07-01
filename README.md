@@ -10,7 +10,7 @@
 
 This is an unofficial, fan-made card reference built by **Hadronikle** for personal reference use only. All cards have been physically scanned at 800 DPI.
 
-The database covers **662 cards** across all major expansions and card types.
+The database covers **667 cards** across all major expansions and card types.
 
 ---
 
@@ -48,11 +48,6 @@ The following cards are not yet in the database:
 
 | # | Name | Source |
 |---|------|--------|
-| X67 | Soil Enrichment | TM: Seasonal Promo Pack 2024 |
-| X68 | Supermarkets | TM: Seasonal Promo Pack 2024 |
-| X69 | Hospitals | TM: Seasonal Promo Pack 2024 |
-| X70 | Public Baths | TM: Seasonal Promo Pack 2024 |
-| X71 | City Parks | TM: Seasonal Promo Pack 2024 |
 | X77 | Public Plans | WSBG Las Vegas 2025 (World Series of Board Games) |
 | 136 | Great Dam | Base Set |
 
