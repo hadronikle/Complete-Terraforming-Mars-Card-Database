@@ -114,11 +114,11 @@ header .title-sub { font-size: 0.72em; color: #30c8d8; letter-spacing: 10px; tex
 #lightbox-close { position: absolute; top: 16px; right: 24px; font-size: 2em; color: #c8c0b0; cursor: pointer; background: none; border: none; line-height: 1; z-index: 10; }
 #lightbox-close:hover { color: #ff6030; }
 #lb-img-wrap { position: relative; display: inline-block; }
-.lb-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(26,40,56,0.85); border: 2px solid #e05010; color: #ff8040; font-size: 1.6em; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+.lb-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(26,40,56,0.85); border: 2px solid #e05010; color: #ff8040; font-size: 1.6em; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; z-index: 10; }
 .lb-arrow:hover { background: #e05010; color: #fff; box-shadow: 0 0 16px rgba(220,80,10,0.6); }
 .lb-arrow:disabled { opacity: 0.2; cursor: default; pointer-events: none; }
-#lb-prev { left: 8px; }
-#lb-next { right: 8px; }
+#lb-prev { left: -60px; }
+#lb-next { right: -60px; }
 #lightbox-info { text-align: center; margin-top: 14px; min-height: 60px; }
 #lightbox-name { font-size: 1.15em; color: #fff; font-weight: bold; margin-bottom: 8px; text-shadow: 0 0 10px rgba(255,120,40,0.6); }
 #lightbox-badges { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; margin-bottom: 4px; }
@@ -170,6 +170,9 @@ footer { border-top: 1px solid #1e3048; margin-top: 20px; padding: 24px 20px 32p
   #searchInput { width: 100%; font-size: 0.85em; }
   #grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; padding: 10px; }
   #back-to-top { bottom: 16px; right: 16px; width: 38px; height: 38px; font-size: 1.1em; }
+  #lb-prev { left: 8px; }
+  #lb-next { right: 8px; }
+  .lb-arrow { width: 38px; height: 38px; font-size: 1.2em; }
 }
 </style>
 </head>
@@ -232,8 +235,8 @@ footer { border-top: 1px solid #1e3048; margin-top: 20px; padding: 24px 20px 32p
 <div id="lightbox">
   <button id="lightbox-close">✕</button>
   <div id="lb-img-wrap">
-    <img id="lightbox-img" src="" alt="">
     <button class="lb-arrow" id="lb-prev">&#8592;</button>
+    <img id="lightbox-img" src="" alt="">
     <button class="lb-arrow" id="lb-next">&#8594;</button>
   </div>
   <div id="lightbox-info">
