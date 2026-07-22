@@ -10,7 +10,7 @@
 
 This is an unofficial, fan-made card reference built by **Hadronikle** for personal reference use only. All cards have been physically scanned at 800 DPI.
 
-The database covers **667 cards** across all major expansions and card types.
+The database covers **668 cards** across all major expansions and card types.
 
 ---
 
@@ -49,7 +49,6 @@ The following cards are not yet in the database:
 | # | Name | Source |
 |---|------|--------|
 | X77 | Public Plans | WSBG Las Vegas 2025 (World Series of Board Games) |
-| 136 | Great Dam | Base Set |
 
 If you have any of these cards and would like to contribute a scan, please [open an Issue](https://github.com/hadronikle/Complete-Terraforming-Mars-Card-Database/issues).
 
