@@ -62,6 +62,14 @@ If you notice a missing card, a duplicate, or a quality issue, please [open an I
 
 ---
 
+## License
+
+The source code in this repository is licensed under the [MIT License](LICENSE).
+
+This applies only to the code (HTML, JavaScript, and Python build scripts). It does not cover the Terraforming Mars card images, artwork, names, or game content, which are the property of FryxGames and are included for reference only.
+
+---
+
 ## Disclaimer
 
 This is an unofficial, fan-made reference tool created by Hadronikle and is intended for personal reference use only. This project is not affiliated with, endorsed by, or associated with Jacob Fryxelius or FryxGames in any way. Terraforming Mars is created by Jacob Fryxelius and published by FryxGames. All card names, artwork, and images are property of their respective owners.
