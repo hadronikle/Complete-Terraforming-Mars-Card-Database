@@ -430,12 +430,51 @@ document.getElementById("btn-filtermode").addEventListener("click", () => {
   render();
 });
 
+const BASE_TITLE = "Terraforming Mars Card List & Database | All Expansions";
+const BASE_OG_URL = "https://tm.hadronikle.com/";
+function cardSlug(c) {
+  return c.img.split('/').pop().replace(/\.[^.]+$/, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+function setMeta(prop, val) {
+  const el = document.querySelector('meta[property="' + prop + '"]');
+  if (el) el.setAttribute('content', val);
+}
+function syncURL(replace) {
+  const c = currentFiltered[lbIndex];
+  const slug = cardSlug(c);
+  const url = window.location.pathname + '?card=' + slug;
+  history[replace ? 'replaceState' : 'pushState']({ card: slug }, '', url);
+  const t = c.name + ' | Terraforming Mars Card List';
+  document.title = t;
+  setMeta('og:title', t);
+  setMeta('og:url', window.location.origin + url);
+  setMeta('og:image', c.img);
+}
+function resetURL() {
+  history.pushState({}, '', window.location.pathname);
+  document.title = BASE_TITLE;
+  setMeta('og:title', BASE_TITLE);
+  setMeta('og:url', BASE_OG_URL);
+  setMeta('og:image', BASE_OG_URL + 'favicon.png');
+}
+function navTo(i, replace) {
+  lbIndex = i;
+  showLightboxCard();
+  syncURL(replace);
+}
+function openCardBySlug(slug) {
+  const idx = currentFiltered.findIndex(c => cardSlug(c) === slug);
+  if (idx >= 0) { openLightbox(idx, true); return true; }
+  return false;
+}
+
 let lbIndex = 0;
 
-function openLightbox(i) {
+function openLightbox(i, skipURL) {
   lbIndex = i;
   showLightboxCard();
   document.getElementById("lightbox").classList.add("show");
+  if (!skipURL) syncURL(false);
 }
 
 function showLightboxCard() {
@@ -455,14 +494,14 @@ function showLightboxCard() {
 
 document.getElementById("lb-prev").addEventListener("click", e => {
   e.stopPropagation();
-  if (lbIndex > 0) { lbIndex--; showLightboxCard(); }
+  if (lbIndex > 0) { navTo(lbIndex - 1, true); }
 });
 document.getElementById("lb-next").addEventListener("click", e => {
   e.stopPropagation();
-  if (lbIndex < currentFiltered.length - 1) { lbIndex++; showLightboxCard(); }
+  if (lbIndex < currentFiltered.length - 1) { navTo(lbIndex + 1, true); }
 });
 
-function closeLightbox() { document.getElementById("lightbox").classList.remove("show"); }
+function closeLightbox(skipURL) { document.getElementById("lightbox").classList.remove("show"); if (!skipURL) resetURL(); }
 document.getElementById("lightbox").addEventListener("click", e => {
   if (e.target === document.getElementById("lightbox")) closeLightbox();
 });
@@ -471,8 +510,8 @@ document.getElementById("lightbox-close").addEventListener("click", closeLightbo
 document.addEventListener("keydown", e => {
   if (!document.getElementById("lightbox").classList.contains("show")) return;
   if (e.key === "Escape") closeLightbox();
-  if (e.key === "ArrowLeft" && lbIndex > 0) { lbIndex--; showLightboxCard(); }
-  if (e.key === "ArrowRight" && lbIndex < currentFiltered.length - 1) { lbIndex++; showLightboxCard(); }
+  if (e.key === "ArrowLeft" && lbIndex > 0) { navTo(lbIndex - 1, true); }
+  if (e.key === "ArrowRight" && lbIndex < currentFiltered.length - 1) { navTo(lbIndex + 1, true); }
 });
 
 // Clear all filters
@@ -508,8 +547,8 @@ document.getElementById("lightbox").addEventListener("touchstart", e => {
 document.getElementById("lightbox").addEventListener("touchend", e => {
   const dx = e.changedTouches[0].clientX - touchStartX;
   if (Math.abs(dx) < 40) return;
-  if (dx > 0 && lbIndex > 0) { lbIndex--; showLightboxCard(); }
-  if (dx < 0 && lbIndex < currentFiltered.length - 1) { lbIndex++; showLightboxCard(); }
+  if (dx > 0 && lbIndex > 0) { navTo(lbIndex - 1, true); }
+  if (dx < 0 && lbIndex < currentFiltered.length - 1) { navTo(lbIndex + 1, true); }
 });
 
 // Card count tooltips
@@ -527,6 +566,25 @@ document.getElementById("lightbox").addEventListener("touchend", e => {
 })();
 
 render();
+
+// Deep-link routing: open card from ?card=slug on load
+window.addEventListener('popstate', () => {
+  const slug = new URLSearchParams(window.location.search).get('card');
+  if (slug) {
+    const idx = currentFiltered.findIndex(c => cardSlug(c) === slug);
+    if (idx >= 0) {
+      lbIndex = idx;
+      showLightboxCard();
+      document.getElementById('lightbox').classList.add('show');
+      return;
+    }
+  }
+  closeLightbox(true);
+});
+(function() {
+  const slug = new URLSearchParams(window.location.search).get('card');
+  if (slug) openCardBySlug(slug);
+})();
 </script>
 </body>
 </html>
